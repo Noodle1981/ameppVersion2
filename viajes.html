@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Viajes y Destinos - ROCIO TOUR - AMEPP</title> {/* Puedes añadir AMEPP al título */}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            padding-top: 120px;
+            /* Ajusta esto si la altura de tu navbar fijo es diferente */
+        }
+
+        .trip-card img {
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+
+        .breadcrumb-item a {
+            text-decoration: none;
+        }
+
+        .expired-trip .card-img-top {
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        .expired-trip .card-body,
+        .expired-trip .card-footer {
+            opacity: 0.8;
+        }
+
+        .expired-trip .card-title a {
+            /* Si el título sigue siendo <a> */
+            color: #6c757d !important;
+            pointer-events: none;
+        }
+
+        .trip-card .card-title a:hover {
+            /* Si el título es <a> */
+            color: var(--bs-primary) !important;
+        }
+
+        [id^="viaje-"] {
+            scroll-margin-top: 140px;
+            /* Ajusta si la altura del navbar + un poco más */
+        }
+
+        /* Estilos para el botón de WhatsApp y su contenedor */
+        .whatsapp-general-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            /* Espacio antes del texto de abajo */
+        }
+
+        .btn-whatsapp-general {
+            /* Clase para el botón de WhatsApp General */
+            /* width: auto; /* Permite que el botón tome el ancho de su contenido */
+            /* max-width: 300px; /* O un ancho máximo si no quieres que sea demasiado grande en pantallas anchas */
+            /* O puedes mantener w-50 o w-75 si te gusta que tenga un ancho fijo relativo, pero el centrado es clave */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logoamepp2.png" alt="AMEPP Logo" width="100" height="100"
+                    class="d-inline-block align-text-top me-2 logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-2 px-3"
+                            href="/index.html">Volver al sitio principal</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pt-4 pb-5">
+
+        <div class="text-center">
+            <h1 class="mb-3">Todos Nuestros Viajes con ROCIO TOUR</h1>
+            <p class="lead mb-4">Explora todas las opciones de viaje disponibles. ¡Tu próxima aventura comienza aquí!
+            </p>
+        </div>
+
+        <div class="whatsapp-general-container">
+            <a href="https://api.whatsapp.com/send?phone=TUNUMERODEWHATSAPP&text=Hola%2C%20quisiera%20consultar%20sobre%20los%20paquetes%20tur%C3%ADsticos%20de%20Rocio%20Tour."
+                class="btn btn-success btn-lg btn-whatsapp-general" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-whatsapp me-2"></i> Consultar Paquetes
+            </a>
+        </div>
+
+        <p class="text-center text-muted mt-2 mb-5">
+            <small>Cualquier paquete turístico está disponible para consultas generales vía WhatsApp.</small>
+        </p>
+
+        <!-- Filtros (opcional, para el futuro) -->
+        <!-- ... tu código de filtros ... -->
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Viaje 1 (Vigente) -->
+            <div class="col" id="viaje-id-1">
+                <div class="card h-100 shadow-sm trip-card"> {/* Aquí aplicarías los estilos de trip-card para hover y
+                    overlay si decides usarlos */}
+                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Patagonia" class="card-img-top"
+                        alt="Viaje a la Patagonia">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="viajes.html#viaje-id-1"
+                                class="text-decoration-none text-dark">Aventura en la Patagonia</a></h5>
+                        <p class="card-text">Explora glaciares, montañas y lagos en un viaje inolvidable. Salida grupal
+                            confirmada.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <small class="text-muted d-block">Publicado: 28 de Julio, 2024</small>
+                        <small class="text-success fw-bold d-block">Fecha del viaje: 15 de Septiembre, 2024</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Viaje 2 (Vigente) -->
+            <div class="col" id="viaje-id-2">
+                <div class="card h-100 shadow-sm trip-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Norte" class="card-img-top"
+                        alt="Viaje al Norte Argentino">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="viajes.html#viaje-id-2"
+                                class="text-decoration-none text-dark">Colores del Norte Argentino</a></h5>
+                        <p class="card-text">Descubre la cultura, paisajes y gastronomía de Salta y Jujuy.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <small class="text-muted d-block">Publicado: 25 de Julio, 2024</small>
+                        <small class="text-success fw-bold d-block">Fecha del viaje: 10 de Octubre, 2024</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Viaje 3 (Vigente) -->
+            <div class="col" id="viaje-id-3">
+                <div class="card h-100 shadow-sm trip-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Cataratas" class="card-img-top"
+                        alt="Viaje a Cataratas del Iguazú">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="viajes.html#viaje-id-3"
+                                class="text-decoration-none text-dark">Maravilla Natural: Cataratas</a></h5>
+                        <p class="card-text">Siente la fuerza de la naturaleza en una de las maravillas del mundo.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <small class="text-muted d-block">Publicado: 20 de Julio, 2024</small>
+                        <small class="text-success fw-bold d-block">Fecha del viaje: 05 de Noviembre, 2024</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Viaje 4 (Caducado) -->
+            <div class="col" id="viaje-id-4">
+                <div class="card h-100 shadow-sm trip-card expired-trip">
+                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Playas+Brasil+(CADUCADO)"
+                        class="card-img-top" alt="Viaje a Playas de Brasil">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#" class="text-decoration-none">Sol y Playa en Brasil</a></h5>
+                        {/* El CSS para .expired-trip .card-title a lo pone gris y sin pointer-events */}
+                        <p class="card-text">Disfruta del sol y el mar en las hermosas playas de Florianópolis.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <small class="text-muted d-block">Publicado: 15 de Enero, 2024</small>
+                        <small class="text-danger fw-bold d-block">Fecha del viaje: 10 de Marzo, 2024
+                            (Finalizado)</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Viaje 5 (Vigente) -->
+            <div class="col" id="viaje-id-5">
+                <div class="card h-100 shadow-sm trip-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Europa" class="card-img-top"
+                        alt="Europa Clásica">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="viajes.html#viaje-id-5"
+                                class="text-decoration-none text-dark">Europa Clásica: París, Roma, Madrid</a></h5>
+                        <p class="card-text">Un recorrido soñado por las capitales más emblemáticas de Europa.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <small class="text-muted d-block">Publicado: 10 de Junio, 2024</small>
+                        <small class="text-success fw-bold d-block">Fecha del viaje: 20 de Diciembre, 2024</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 text-white">
+        <div class="container text-center">
+            <img src="img/logoamepp2.png" alt="AMEPP Logo Pequeño" width="100" class="logo">
+            <p>© <span id="currentYear"></span> AMEPP. Todos los derechos reservados.</p>
+            <p>Diseñado por Xamanen</p>
+            <div>
+                <a href="#" class="text-white me-2 fs-4"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-2 fs-4"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white fs-4"><i class="bi bi-twitter-x"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Script para el botón "Volver Arriba"
+        let backToTopButton = document.getElementById("backToTop");
+        window.onscroll = function () {
+            scrollFunction();
+        };
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        }
+        backToTopButton.addEventListener("click", function () {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

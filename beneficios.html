@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Beneficios - [Nombre de tu Sitio]</title>
+    <!-- Bootstrap CSS (asegúrate que la ruta sea correcta) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (asegúrate que la ruta sea correcta o usa tu método de importación) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Tu CSS personalizado (asegúrate que la ruta sea correcta) -->
+    <link rel="stylesheet" href="css/style.css"> {/* Asumiendo que tienes un style.css */}
+    <style>
+        /* Estilos específicos para esta página si son necesarios */
+        .flyer-card img {
+            aspect-ratio: 16/9;
+            /* O la proporción que tengan tus flyers */
+            object-fit: cover;
+            /* Para que la imagen cubra sin distorsionarse */
+        }
+
+        .breadcrumb-item a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logoamepp2.png" alt="AMEPP Logo" width="100" height="100"
+                    class="d-inline-block align-text-top me-2 logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-2 px-3"
+                            href="/index.html">Volver al sitio principal</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container py-5">
+
+        <h1 class="mb-4 text-center">Nuestros Beneficios</h1>
+        <p class="text-center lead mb-5">Descubre los convenios y ventajas exclusivas para nuestros miembros.</p>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Ejemplo de Beneficio 1 -->
+            <div class="col">
+                <div class="card h-100 flyer-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x225.png?text=Flyer+Beneficio+Gimnasio"
+                        class="card-img-top" alt="Flyer del Beneficio Gimnasio XYZ">
+                    <div class="card-body">
+                        <h5 class="card-title">Descuento en Gimnasio XYZ</h5>
+                        <p class="card-text">Obtén un 20% de descuento en la membresía mensual del Gimnasio XYZ.</p>
+                        <!-- Podrías añadir un enlace a una página de detalle del beneficio o a la web del proveedor -->
+                        <!-- <a href="detalle-beneficio-gimnasio.html" class="btn btn-primary btn-sm mt-2">Ver Condiciones</a> -->
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Vigente desde: 10 de Julio, 2024</small>
+                        <!-- Para la base de datos, aquí iría la fecha real: -->
+                        <!-- <small class="text-muted">Publicado: {{ beneficio.fecha_publicacion | date:"d M, Y" }}</small> -->
+                        <!-- O si tiene fecha de vigencia: -->
+                        <!-- <small class="text-muted">Vigente hasta: {{ beneficio.fecha_vencimiento | date:"d M, Y" }}</small> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Beneficio 2 -->
+            <div class="col">
+                <div class="card h-100 flyer-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x225.png?text=Flyer+Beneficio+Librería"
+                        class="card-img-top" alt="Flyer del Beneficio Librería El Saber">
+                    <div class="card-body">
+                        <h5 class="card-title">15% en Librería "El Saber"</h5>
+                        <p class="card-text">Descuento en todos los libros de texto y literatura general.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Vigente desde: 01 de Julio, 2024</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejemplo de Beneficio 3 -->
+            <div class="col">
+                <div class="card h-100 flyer-card shadow-sm">
+                    <img src="https://via.placeholder.com/400x225.png?text=Flyer+Beneficio+Cine" class="card-img-top"
+                        alt="Flyer del Beneficio Cine Premier">
+                    <div class="card-body">
+                        <h5 class="card-title">Entradas 2x1 en Cine Premier</h5>
+                        <p class="card-text">Disfruta del mejor cine con entradas 2x1 los días martes y miércoles.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Vigente desde: 15 de Junio, 2024</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Añade más beneficios aquí -->
+
+        </div>
+    </main>
+    <footer class="py-4 text-white">
+        <div class="container text-center">
+            <img src="img/logoamepp2.png" alt="AMEPP Logo Pequeño" width="100" class="logo">
+            <p>© <span id="currentYear"></span> AMEPP. Todos los derechos reservados.</p>
+            <p>Diseñado por Xamanen</p>
+            <div>
+                <a href="#" class="text-white me-2 fs-4"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-white me-2 fs-4"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-white fs-4"><i class="bi bi-twitter-x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (asegúrate que la ruta sea correcta) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Si usas AOS en estas páginas también, incluye su JS y la inicialización -->
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+    <!-- <script> AOS.init(); </script> -->
+</body>
+
+</html>

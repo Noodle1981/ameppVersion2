@@ -1,0 +1,558 @@
+/* css/style.css */
+
+/* Variables de Color y Fuentes (CON TU PALETA DEL LOGO) */
+:root {
+    --color-naranja: #ff9c1a;
+    --color-turquesa: #0ba9e4;
+    --color-rosadofluo: #dc0c53;
+    --color-morado: #8a1066;
+    --color-lilaclaro: #734680;
+    --color-verdepasto: #a7c416;
+
+    /* Definiendo roles basados en tu paleta */
+    --amepp-primary: var(--color-turquesa);   /* Turquesa como color principal */
+    --amepp-secondary: var(--color-morado);   /* Morado como secundario fuerte */
+    --amepp-accent: var(--color-naranja);     /* Naranja para CTAs y destaques principales */
+    --amepp-highlight: var(--color-rosadofluo); /* Rosado fluo para acentos llamativos */
+    --amepp-complementary1: var(--color-verdepasto); /* Verde para variedad */
+    --amepp-complementary2: var(--color-lilaclaro); /* Lila para detalles o fondos sutiles */
+
+    /* Colores para texto y fondos base */
+    --amepp-text-dark: #212529;      /* Negro suave para texto principal (o #000000) */
+    --amepp-text-light: #ffffff;      /* Blanco para texto sobre fondos oscuros/vibrantes */
+    --amepp-bg-light: #f8f9fa;        /* Fondo general muy claro, casi blanco */
+    --amepp-bg-soft-gray: #e9ecef;    /* Un gris un poco más notorio para alternar secciones */
+
+    /* Versiones RGB para usar en rgba() (opcional pero recomendado) */
+    --color-naranja-rgb: 255, 156, 26;
+    --color-turquesa-rgb: 11, 169, 228;
+    --color-rosadofluo-rgb: 220, 12, 83;
+    --color-morado-rgb: 138, 16, 102;
+    --color-lilaclaro-rgb: 115, 70, 128;
+    --color-verdepasto-rgb: 167, 196, 22;
+
+    --font-primary: 'Open Sans', sans-serif;
+    --font-headings: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--amepp-text-dark);
+    padding-top: 70px;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    color: var(--amepp-secondary); /* Títulos en Morado */
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px; /* Un poco más gruesa */
+    background: linear-gradient(90deg, var(--amepp-accent), var(--amepp-highlight)); /* Degradado Naranja a Rosado */
+    margin: 0.5rem auto 0;
+}
+#quienes-somos .section-title::after {
+    margin-left: 0; /* Para títulos alineados a la izquierda */
+}
+
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85); /* Un poco más transparente inicialmente */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.navbar-brand {
+    color: var(--amepp-primary) !important; /* Turquesa */
+    font-size: 1.6rem; /* Un poco más grande */
+}
+.navbar .nav-link {
+    color: #495057; /* Un gris más oscuro para mejor contraste inicial */
+    font-weight: 600;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active {
+    color: var(--amepp-accent); /* Naranja al hover/activo */
+}
+.navbar .btn-primary { /* Botón "Asociate Ahora" */
+    background-color: var(--amepp-accent) !important; /* Naranja */
+    border-color: var(--amepp-accent) !important;
+    color: var(--amepp-text-light) !important;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px; /* Más redondeado */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.navbar .btn-primary:hover {
+    background-color: var(--amepp-highlight) !important; /* Rosado Fluo al hover */
+    border-color: var(--amepp-highlight) !important;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(var(--color-rosadofluo-rgb), 0.4);
+}
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Hero Section */
+/* En tu css/style.css */
+#principal {
+    min-height: calc(100vh - 70px); /* O la altura que desees, asegúrate de que tenga una */
+    display: flex; /* Para centrar el contenido interno */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* Importante para el pseudo-elemento si lo usas para el overlay */
+
+    /* La clave está aquí: */
+    background-image: linear-gradient(45deg, rgba(var(--color-morado-rgb), 0.8), rgba(var(--color-turquesa-rgb), 0.7)), url('../img/comision.jpg'); /* AJUSTA LA RUTA */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Esto hace que la imagen cubra el contenedor */
+    background-attachment: fixed; /* Efecto parallax sutil, opcional */
+}
+.hero-content {
+    max-width: 750px; /* Un poco más de espacio */
+    padding: 2rem;
+    background-color: rgba(0,0,0,0.15); /* Overlay sutil para el contenido mismo */
+    border-radius: 15px;
+}
+#principal h1 {
+    font-size: 3.5rem; /* Más grande */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+#principal .lead {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem !important;
+}
+#principal .btn-light { /* Botón "Descubre los Beneficios" */
+    background-color: var(--amepp-text-light);
+    color: var(--amepp-accent); /* Texto naranja */
+    padding: 0.9rem 2.2rem;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(var(--color-naranja-rgb), 0.3);
+    transition: all 0.3s ease;
+}
+#principal .btn-light:hover {
+    background-color: var(--amepp-accent);
+    color: var(--amepp-text-light);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(var(--color-naranja-rgb), 0.5);
+}
+
+
+/* Quiénes Somos */
+#quienes-somos {
+    background-color: var(--amepp-bg-light);
+}
+#quienes-somos h4 i {
+    color: var(--amepp-primary); /* Iconos de Misión/Visión en Turquesa */
+}
+#quienes-somos img {
+    max-height: 450px; /* Un poco más alta */
+    object-fit: cover;
+    border-radius: 15px; /* Bordes redondeados */
+}
+.stats-counters i {
+    color: var(--amepp-primary); /* Turquesa por defecto */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+/* Dando color a cada contador */
+.stats-counters .col-md-4:nth-child(1) i { color: var(--color-turquesa); }
+.stats-counters .col-md-4:nth-child(2) i { color: var(--color-naranja); }
+.stats-counters .col-md-4:nth-child(3) i { color: var(--color-verdepasto); }
+
+.stats-counters .col-md-4:hover i {
+    transform: scale(1.15) translateY(-3px);
+}
+
+
+/* Beneficios y Servicios Cards */
+.custom-card {
+    border: none;
+    border-radius: 15px; /* Más redondeado */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: var(--amepp-text-light); /* Fondo blanco para las cards */
+    overflow: hidden; /* Para el efecto del borde superior */
+    position: relative;
+}
+.custom-card::before { /* Borde superior de color */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: var(--amepp-primary); /* Turquesa por defecto */
+    transition: background-color 0.3s ease;
+}
+.custom-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Colores para los bordes superiores de las cards de Beneficios y sus iconos */
+#beneficios .col:nth-child(3n+1) .custom-card::before { background-color: var(--color-naranja); }
+#beneficios .col:nth-child(3n+1) .icon-circle { background-color: var(--color-naranja); }
+
+#beneficios .col:nth-child(3n+2) .custom-card::before { background-color: var(--color-rosadofluo); }
+#beneficios .col:nth-child(3n+2) .icon-circle { background-color: var(--color-rosadofluo); }
+
+#beneficios .col:nth-child(3n+3) .custom-card::before { background-color: var(--color-verdepasto); }
+#beneficios .col:nth-child(3n+3) .icon-circle { background-color: var(--color-verdepasto); }
+
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    color: var(--amepp-text-light);
+    margin-bottom: 1.5rem !important; /* Más espacio debajo del icono */
+}
+.custom-card .card-title {
+    color: var(--amepp-secondary); /* Morado */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Sección Servicios */
+#servicios {
+    background-color: var(--amepp-bg-soft-gray); /* Fondo gris suave para alternar */
+}
+#servicios .card-body.d-flex i {
+    align-self: center; /* Centrar icono con el texto si es una sola línea */
+    font-size: 2.5rem !important; /* Iconos más grandes */
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del texto del padre, evitando el azul de enlace */
+    display: block; /* Hace que el enlace ocupe todo el espacio de su contenedor */
+}
+
+.card-link .card:hover {
+    transform: translateY(-5px); /* Ejemplo de efecto hover sutil */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; /* Sombra más pronunciada al pasar el mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Colores para iconos de servicios */
+#servicios .col:nth-child(3n+1) .custom-card::before { background-color: var(--color-turquesa); }
+#servicios .col:nth-child(3n+1) .card-body i { color: var(--color-turquesa); }
+
+#servicios .col:nth-child(3n+2) .custom-card::before { background-color: var(--color-lilaclaro); }
+#servicios .col:nth-child(3n+2) .card-body i { color: var(--color-lilaclaro); }
+
+#servicios .col:nth-child(3n+3) .custom-card::before { background-color: var(--color-morado); }
+#servicios .col:nth-child(3n+3) .card-body i { color: var(--color-morado); }
+
+/* Estilos para las tarjetas de viaje (trip-card) y enlaces */
+.trip-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative; /* Necesario para el enlace superpuesto */
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.1);
+}
+
+/* Enlace que cubre toda la tarjeta */
+.trip-card .card-click-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* Se asegura que esté por encima del contenido pero debajo de elementos interactivos específicos como el botón de WhatsApp */
+    /* background-color: rgba(0,0,0,0.01); /* Descomentar para debuggear el área del enlace */
+}
+
+.trip-card .card-body,
+.trip-card .card-footer,
+.trip-card .card-img-top {
+    position: relative; /* Para asegurar que el contenido de la tarjeta no se oculte por el overlay si hay problemas de z-index */
+    z-index: 0;
+}
+
+.trip-card .btn-whatsapp-consult {
+    position: relative; /* Asegura que el botón esté por encima del overlay */
+    z-index: 2;
+}
+
+
+/* Estilos para el botón de WhatsApp y su estado */
+.btn-whatsapp-consult {
+    text-decoration: none; /* Quita el subrayado si es un <a> */
+    color: white !important; /* Asegura texto blanco en el botón */
+}
+
+.btn-whatsapp-consult i {
+    margin-right: 0.3rem;
+}
+
+.whatsapp-general-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem; 
+}
+
+/* Estilos para viajes caducados (ya los tenías, solo asegúrate de que se apliquen bien) */
+.expired-trip .card-img-top {
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+.expired-trip .card-body,
+.expired-trip .card-footer {
+    opacity: 0.8;
+}
+.expired-trip .card-title a { /* Si el título era un enlace, ahora no lo es directamente */
+    color: #6c757d !important;
+    pointer-events: none; /* Deshabilita el click en el título si aún es un <a> */
+}
+
+/* Para el botón de WhatsApp en viajes caducados */
+.expired-trip .btn-whatsapp-consult {
+    background-color: #6c757d !important; /* Color gris */
+    border-color: #6c757d !important;
+    pointer-events: none; /* Deshabilita el click */
+    cursor: not-allowed;
+}
+.expired-trip .btn-whatsapp-consult::after { /* Opcional: texto adicional para caducados */
+    content: " (No disponible)";
+    font-size: 0.9em;
+}
+
+/* Estilo para la imagen de la tarjeta */
+.trip-card img {
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+/* Ajuste para que el título no sea un enlace (el enlace es toda la tarjeta) */
+.trip-card .card-title {
+    margin-bottom: 0.5rem; /* Ajustar según sea necesario */
+}
+
+/* Scroll margin para anclas */
+[id^="viaje-"] {
+    scroll-margin-top: 80px;
+}
+
+
+
+/* Noticias Cards */
+#noticias {
+    background-color: var(--amepp-bg-light);
+}
+#noticias .card-img-top {
+    border-top-left-radius: 15px; /* Coincide con card */
+    border-top-right-radius: 15px;
+}
+#noticias .custom-card::before { /* Hereda el borde, pero podemos personalizar si queremos */
+    background-color: var(--amepp-secondary); /* Morado para noticias */
+}
+#noticias .btn-outline-primary { /* Botón "Leer Más" */
+    color: var(--amepp-accent);
+    border-color: var(--amepp-accent);
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+}
+#noticias .btn-outline-primary:hover {
+    background-color: var(--amepp-accent);
+    color: var(--amepp-text-light);
+}
+
+/* Contacto */
+#contacto {
+    background: linear-gradient(to bottom, var(--amepp-bg-soft-gray) 70%, var(--amepp-text-light) 70%);
+}
+.contact-info li {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+.contact-info i {
+    color: var(--amepp-primary) !important; /* Turquesa */
+    font-size: 1.5rem;
+    vertical-align: middle;
+    margin-right: 0.75rem !important;
+}
+.map-responsive {
+    border-radius: 15px;
+}
+#contactForm .form-control {
+    border-radius: 8px; /* Bordes más suaves */
+    padding: 0.8rem 1rem;
+}
+#contactForm .form-control:focus {
+    border-color: var(--amepp-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--color-turquesa-rgb), 0.25);
+}
+#contactForm .btn-primary {
+    background: linear-gradient(90deg, var(--amepp-accent), var(--amepp-highlight));
+    border: none;
+    padding: 0.85rem;
+    font-weight: bold;
+    color: var(--amepp-text-light);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(var(--color-naranja-rgb), 0.3);
+}
+#contactForm .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(var(--color-rosadofluo-rgb), 0.4);
+}
+
+/* Footer */
+footer {
+    background-color: var(--amepp-secondary); /* Fondo Morado */
+    color: rgba(255,255,255,0.85); /* Texto un poco más tenue */
+}
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+footer .bi-heart-fill {
+    color: var(--amepp-highlight) !important; /* Rosado Fluo */
+}
+footer .fs-4 i { /* Iconos de redes sociales */
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: rgba(255,255,255,0.7) !important;
+}
+footer .fs-4 i:hover {
+    transform: scale(1.3) translateY(-2px);
+    color: var(--amepp-accent) !important; /* Naranja al hover */
+}
+
+.logo {
+border-radius: 25px;
+margin-bottom: 15px;
+}
+#backToTop { /* Botón Volver Arriba */
+    background-color: var(--amepp-accent);
+    border-color: var(--amepp-accent);
+    color: var(--amepp-text-light);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem; /* Icono más grande */
+    box-shadow: 0 4px 12px rgba(var(--color-naranja-rgb),0.4);
+    transition: all 0.3s ease;
+}
+#backToTop:hover {
+    background-color: var(--amepp-highlight);
+    border-color: var(--amepp-highlight);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 15px rgba(var(--color-rosadofluo-rgb),0.5);
+}
+
+/* css/style.css */
+
+/* ... (todo el CSS anterior) ... */
+
+/* Estilos para el Carrusel Institucional */
+#carouselInstitucional .carousel-image {
+    max-height: 550px; /* Ajusta según la altura deseada para el carrusel */
+    object-fit: cover; /* Para que la imagen cubra sin deformarse */
+    width: 100%;
+}
+
+#carouselInstitucional .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el caption */
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+}
+#carouselInstitucional .carousel-caption h5 {
+    color: var(--amepp-text-light);
+    font-weight: bold;
+}
+#carouselInstitucional .carousel-caption p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+#carouselInstitucional .carousel-indicators [data-bs-target] {
+    background-color: var(--amepp-accent); /* Naranja para los indicadores */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.7;
+}
+#carouselInstitucional .carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--amepp-highlight); /* Rosado fluo para el activo */
+}
+
+#carouselInstitucional .carousel-control-prev-icon,
+#carouselInstitucional .carousel-control-next-icon {
+    background-color: rgba(var(--color-morado-rgb), 0.7); /* Morado para los controles */
+    border-radius: 50%;
+    padding: 1.5rem; /* Hacerlos más grandes y fáciles de clickear */
+    background-size: 50% 50%;
+}
+
+
+/* Estilos para la Galería de Turismo */
+.tourism-gallery .card-img-top {
+    height: 220px; /* Altura fija para las imágenes de turismo */
+    object-fit: cover;
+    transition: transform 0.4s ease-out, filter 0.4s ease;
+}
+.tourism-gallery .tourism-card:hover .card-img-top {
+    transform: scale(1.05); /* Ligero zoom a la imagen */
+    filter: brightness(0.9); /* Oscurecer un poco la imagen al hover */
+}
+.tourism-gallery .tourism-card {
+    border-radius: 15px; /* Bordes redondeados consistentes */
+    /* El ::before con el borde de color superior se hereda de .custom-card si la clase está presente */
+    /* Si no, puedes añadirlo específicamente aquí */
+}
+/* Dando colores a los bordes de las cards
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    body { padding-top: 60px; }
+    #principal { min-height: calc(100vh - 60px); }
+    #principal h1 { font-size: 2.5rem; }
+    #principal .lead { font-size: 1.1rem; }
+    .section-title { font-size: 2rem; }
+    .navbar .nav-link { padding: 0.8rem 0; text-align: center; }
+    .navbar .btn-primary { margin-top: 10px; width: auto; padding: 0.5rem 1.5rem; display: block; margin-left: auto; margin-right: auto;}
+}
+@media (max-width: 767.98px) {
+    #principal h1 { font-size: 2.2rem; }
+    .hero-content { padding: 1.5rem; }
+    #principal .btn-light { padding: 0.8rem 1.8rem; font-size: 1rem; }
+}
