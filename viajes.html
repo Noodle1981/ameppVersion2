@@ -17,9 +17,16 @@
             /* Ajusta esto si la altura de tu navbar fijo es diferente */
         }
 
-        .trip-card img {
-            aspect-ratio: 16/10;
+        .trip-card img.card-img-top {
+            /* Hago el selector un poco más específico */
+            width: 100%;
+            /* La imagen debe ocupar todo el ancho de la tarjeta */
+            height: auto;
+            /* La altura se ajustará automáticamente para mantener la proporción */
+            aspect-ratio: 9 / 16;
+            /* ¡Esta es la clave para tu proporción de flyer! */
             object-fit: cover;
+            /* o 'contain' si prefieres ver toda la imagen incluso si deja espacios */
         }
 
         .breadcrumb-item a {
@@ -115,53 +122,18 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <!-- Viaje 1 (Vigente) -->
             <div class="col" id="viaje-id-1">
-                <div class="card h-100 shadow-sm trip-card"> {/* Aquí aplicarías los estilos de trip-card para hover y
-                    overlay si decides usarlos */}
-                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Patagonia" class="card-img-top"
-                        alt="Viaje a la Patagonia">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="viajes.html#viaje-id-1"
-                                class="text-decoration-none text-dark">Aventura en la Patagonia</a></h5>
-                        <p class="card-text">Explora glaciares, montañas y lagos en un viaje inolvidable. Salida grupal
-                            confirmada.</p>
+                <div class="card h-100 shadow-sm trip-card">
+                    <a href="#" class="card-click-overlay" aria-label="Ver detalles de Aventura en la Patagonia"></a>
+                    <img src="img/viajes/1.jpeg" class="card-img-top">
+                    <!-- El card-body ahora está vacío o se puede eliminar si no hay otro contenido -->
+                    <div class="card-body p-2" style="min-height: auto;">
+                        <!-- Opcional: Un padding pequeño si se decide mantener el card-body -->
+                        <!-- Título y descripción eliminados -->
                     </div>
-                    <div class="card-footer bg-transparent border-top-0">
+                    <div class="card-footer bg-transparent border-top-0 pt-0">
+                        <!-- pt-0 para reducir espacio si el card-body está vacío -->
                         <small class="text-muted d-block">Publicado: 28 de Julio, 2024</small>
-                        <small class="text-success fw-bold d-block">Fecha del viaje: 15 de Septiembre, 2024</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Viaje 2 (Vigente) -->
-            <div class="col" id="viaje-id-2">
-                <div class="card h-100 shadow-sm trip-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Norte" class="card-img-top"
-                        alt="Viaje al Norte Argentino">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="viajes.html#viaje-id-2"
-                                class="text-decoration-none text-dark">Colores del Norte Argentino</a></h5>
-                        <p class="card-text">Descubre la cultura, paisajes y gastronomía de Salta y Jujuy.</p>
-                    </div>
-                    <div class="card-footer bg-transparent border-top-0">
-                        <small class="text-muted d-block">Publicado: 25 de Julio, 2024</small>
-                        <small class="text-success fw-bold d-block">Fecha del viaje: 10 de Octubre, 2024</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Viaje 3 (Vigente) -->
-            <div class="col" id="viaje-id-3">
-                <div class="card h-100 shadow-sm trip-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Cataratas" class="card-img-top"
-                        alt="Viaje a Cataratas del Iguazú">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="viajes.html#viaje-id-3"
-                                class="text-decoration-none text-dark">Maravilla Natural: Cataratas</a></h5>
-                        <p class="card-text">Siente la fuerza de la naturaleza en una de las maravillas del mundo.</p>
-                    </div>
-                    <div class="card-footer bg-transparent border-top-0">
-                        <small class="text-muted d-block">Publicado: 20 de Julio, 2024</small>
-                        <small class="text-success fw-bold d-block">Fecha del viaje: 05 de Noviembre, 2024</small>
+                        <small class="text-success fw-bold d-block">Viaje: 15 de Septiembre, 2024</small>
                     </div>
                 </div>
             </div>
@@ -169,37 +141,18 @@
             <!-- Viaje 4 (Caducado) -->
             <div class="col" id="viaje-id-4">
                 <div class="card h-100 shadow-sm trip-card expired-trip">
-                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Playas+Brasil+(CADUCADO)"
-                        class="card-img-top" alt="Viaje a Playas de Brasil">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="#" class="text-decoration-none">Sol y Playa en Brasil</a></h5>
-                        {/* El CSS para .expired-trip .card-title a lo pone gris y sin pointer-events */}
-                        <p class="card-text">Disfruta del sol y el mar en las hermosas playas de Florianópolis.</p>
+                    <!-- No hay card-click-overlay porque está caducado -->
+                    <img src="img/viajes/4.jpeg" class="card-img-top">
+                    <div class="card-body p-2" style="min-height: auto;">
+                        <!-- Título y descripción eliminados -->
                     </div>
-                    <div class="card-footer bg-transparent border-top-0">
+                    <div class="card-footer bg-transparent border-top-0 pt-0">
                         <small class="text-muted d-block">Publicado: 15 de Enero, 2024</small>
-                        <small class="text-danger fw-bold d-block">Fecha del viaje: 10 de Marzo, 2024
-                            (Finalizado)</small>
+                        <small class="text-danger fw-bold d-block">Viaje: 10 de Marzo, 2024 (Finalizado)</small>
                     </div>
                 </div>
             </div>
 
-            <!-- Viaje 5 (Vigente) -->
-            <div class="col" id="viaje-id-5">
-                <div class="card h-100 shadow-sm trip-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Flyer+Viaje+Europa" class="card-img-top"
-                        alt="Europa Clásica">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="viajes.html#viaje-id-5"
-                                class="text-decoration-none text-dark">Europa Clásica: París, Roma, Madrid</a></h5>
-                        <p class="card-text">Un recorrido soñado por las capitales más emblemáticas de Europa.</p>
-                    </div>
-                    <div class="card-footer bg-transparent border-top-0">
-                        <small class="text-muted d-block">Publicado: 10 de Junio, 2024</small>
-                        <small class="text-success fw-bold d-block">Fecha del viaje: 20 de Diciembre, 2024</small>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
 
